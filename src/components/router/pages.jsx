@@ -8,7 +8,7 @@ import LoggedOutRoute from './loggedOutRoute';
 const Pages = () => {
   return (
     <Switch>
-      <LoggedInRoute path="/" exact={true} component={Home} />
+      <LoggedInRoute path="/home" exact={true} component={Home} />
       <LoggedOutRoute path="/login" exact={true} component={Login} />
     </Switch>
   );

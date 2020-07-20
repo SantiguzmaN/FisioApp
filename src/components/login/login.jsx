@@ -1,20 +1,31 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import Background from '../shared/background';
+import { loginFetch } from '../../actions/loginActions';
+import history from '../../history';
 import '../../styles/forms.css';
 
 
-const Login = (props) => {
-
-  const propsEmail =
-    props.location && props.location.state && props.location.state.email ? props.location.state.email : '';
-  const [email, setEmail] = useState(propsEmail);
+const Login = () => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    toast.done('iniciar sesion')
-  };
+    loginFetch(email, password).then(data => {
+      if (data === false) {
+        toast.warn('Problemas de conexion, intentelo nuevamente');
+      } else {
+        if (data.status === false) {
+          toast.error('El usuario y la contraseña no coiciden. Verifique e intentelo nuevamente')
+        } else if (data && data.status === true) {
+          toast.success(`El usuario ${data.userName} si existe`);
+          history.push('/home');
+        }
+      }
+    });
+  }
 
   return (
     <Background>
@@ -24,14 +35,13 @@ const Login = (props) => {
           data-testid="login-form"
           onSubmit={handleLoginSubmit}
         >
-          <img className="img-form-logo mb-4 mx-center" src={`${process.env.PUBLIC_URL}/logo.png`} alt="FISIOAPP" />
-          <h1> FISIO APP</h1>
+          <img className="img-form-logo mb-4 mx-center" src={`${process.env.PUBLIC_URL}/tata.jpg`} alt="FISIOAPP" />
           <input
             type="email"
             className="form-control mb-4"
             data-testid="email"
             name="email"
-            placeholder="E-mail"
+            placeholder="Correo Electronico"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
@@ -41,7 +51,7 @@ const Login = (props) => {
             className="form-control mb-4"
             data-testid="password"
             name="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
@@ -54,11 +64,11 @@ const Login = (props) => {
               }}
               title="Forgot Password"
             >
-              Forgot password?
+              Olvidaste la contraseña?
             </Link>
           </div>
           <button className="btn btn-info btn-block my-4" type="submit" data-testid="submit">
-            Login
+            Iniciar Sesion
           </button>
         </form>
       </div>

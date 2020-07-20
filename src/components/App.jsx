@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Pages from './router/pages';
 import history from '../history';
 import '../App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
