@@ -15,12 +15,17 @@ const Background = ({ children }) => {
     },
     infoLayerStyle: {
       position: 'relative',
-      marginTop: '-60px',
+      marginTop: '10px',
     },
     bgLayerStyle: {
       position: 'absolute',
       height: '100%',
       transform: 'translate(-15%, 17%)',
+    },
+    bgLayerStyle2: {
+      position: 'absolute',
+      height: '100%',
+      transform: 'translate(170%, 17%)',
     },
   };
 
@@ -29,60 +34,8 @@ const Background = ({ children }) => {
       <ParallaxMousemove.Layer
         layerStyle={style.bgLayerStyle}
         config={{
-          xFactor: 0.05,
+          xFactor: 0.07,
           yFactor: 0.1,
-          springSettings: {
-            stiffness: 50,
-            damping: 30,
-          },
-        }}
-      >
-        <img src={`${process.env.PUBLIC_URL}/bg4.png`} alt="Parallax Layer"></img>
-      </ParallaxMousemove.Layer>
-      <ParallaxMousemove.Layer
-        layerStyle={style.bgLayerStyle}
-        config={{
-          xFactor: 0.15,
-          yFactor: 0.2,
-          springSettings: {
-            stiffness: 50,
-            damping: 30,
-          },
-        }}
-      >
-        <img src={`${process.env.PUBLIC_URL}/bg5.png`} alt="Parallax Layer"></img>
-      </ParallaxMousemove.Layer>
-      <ParallaxMousemove.Layer
-        layerStyle={style.bgLayerStyle}
-        config={{
-          xFactor: 0.25,
-          yFactor: 0.5,
-          springSettings: {
-            stiffness: 50,
-            damping: 30,
-          },
-        }}
-      >
-        <img src={`${process.env.PUBLIC_URL}/bg7.png`} alt="Parallax Layer"></img>
-      </ParallaxMousemove.Layer>
-      <ParallaxMousemove.Layer
-        layerStyle={style.bgLayerStyle}
-        config={{
-          xFactor: 0.4,
-          yFactor: 0.6,
-          springSettings: {
-            stiffness: 50,
-            damping: 30,
-          },
-        }}
-      >
-        <img src={`${process.env.PUBLIC_URL}/bg6.png`} alt="Parallax Layer"></img>
-      </ParallaxMousemove.Layer>
-      <ParallaxMousemove.Layer
-        layerStyle={style.infoLayerStyle}
-        config={{
-          xFactor: 0.4,
-          yFactor: 0,
           springSettings: {
             stiffness: 100,
             damping: 30,
@@ -92,10 +45,10 @@ const Background = ({ children }) => {
         <img src={`${process.env.PUBLIC_URL}/bg1.png`} alt="Parallax Layer"></img>
       </ParallaxMousemove.Layer>
       <ParallaxMousemove.Layer
-        layerStyle={style.infoLayerStyle}
+        layerStyle={style.bgLayerStyle2}
         config={{
-          xFactor: 0.6,
-          yFactor: 0,
+          xFactor: 0.07,
+          yFactor: 0.1,
           springSettings: {
             stiffness: 100,
             damping: 30,
@@ -103,19 +56,6 @@ const Background = ({ children }) => {
         }}
       >
         <img src={`${process.env.PUBLIC_URL}/bg2.png`} alt="Parallax Layer"></img>
-      </ParallaxMousemove.Layer>
-      <ParallaxMousemove.Layer
-        layerStyle={style.infoLayerStyle}
-        config={{
-          xFactor: 0.8,
-          yFactor: 0,
-          springSettings: {
-            stiffness: 100,
-            damping: 30,
-          },
-        }}
-      >
-        <img src={`${process.env.PUBLIC_URL}/bg3.png`} alt="Parallax Layer"></img>
       </ParallaxMousemove.Layer>
       <ParallaxMousemove.Layer
         layerStyle={style.infoLayerStyle}
