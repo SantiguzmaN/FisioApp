@@ -21,7 +21,7 @@ const Login = () => {
           toast.error('El usuario y la contraseña no coiciden. Verifique e intentelo nuevamente')
         } else if (data && data.status === true) {
           toast.success(`El usuario ${data.userName} si existe`);
-          history.push('/home');
+          history.push('/');
         }
       }
     });
