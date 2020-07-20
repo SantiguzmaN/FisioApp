@@ -1,4 +1,6 @@
 import React from 'react';
+import history from '../history';
+
 const respuestaLoginDone = {
   status: true,
   token: 'xxx1234',
@@ -28,4 +30,12 @@ export function loginFetch(user, password){
     .then(data => {
       return data;
     });
+}
+
+export function logOut() {
+  const token = localStorage.token;
+  if (token) {
+    localStorage.removeItem('token');
+    history.push('/')
+  }
 }
