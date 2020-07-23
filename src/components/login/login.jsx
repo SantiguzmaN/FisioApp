@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import Background from '../shared/background';
 import { loginFetch } from '../../actions/loginActions';
+import { useUserDispatch } from '../../store/userProvider';
+import Background from '../shared/background';
 import history from '../../history';
 import '../../styles/forms.css';
-
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const userDispatch = useUserDispatch();
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ const Login = () => {
           toast.error('El usuario y la contraseña no coiciden. Verifique e intentelo nuevamente')
         } else if (data && data.status === true) {
           toast.success(`El usuario ${data.userName} si existe`);
+          userDispatch({type: 'USER_SIGN_IN', payload: data});
           history.push('/');
         }
       }
