@@ -19,7 +19,7 @@ const Login = () => {
         toast.warn('Problemas de conexion, intentelo nuevamente');
       } else {
         if (data.status === false) {
-          toast.error('El usuario y la contraseña no coiciden. Verifique e intentelo nuevamente')
+          toast.error('El usuario y la contraseña no coinciden. Verifique e intentelo nuevamente')
         } else if (data && data.status === true) {
           toast.success(`El usuario ${data.userName} si existe`);
           userDispatch({type: 'USER_SIGN_IN', payload: data});
@@ -27,6 +27,10 @@ const Login = () => {
         }
       }
     });
+  }
+
+  const signup = () => {
+    history.push('/signup');
   }
 
   return (
@@ -71,6 +75,9 @@ const Login = () => {
           </div>
           <button className="btn btn-info btn-block my-4" type="submit" data-testid="submit">
             Iniciar Sesion
+          </button>
+          <button className="btn btn-info btn-block my-4" onClick={signup}>
+            Regístrate
           </button>
         </form>
       </div>

@@ -7,7 +7,7 @@ const LoggedInRoute = ({ component: Component }) => {
     return <Redirect to="/login" />;
   }
   return (
-        <Route render={(otherProps) => <Component {...otherProps} />} />
+    <Route render={(otherProps) => <Component {...otherProps} />} />
   );
 };
 export default LoggedInRoute;
