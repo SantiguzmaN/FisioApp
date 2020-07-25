@@ -27,18 +27,16 @@ const Avatar = () => {
           />
         </div>
       )}
-      <div>
-        <button
-          className="button-photo button-avatar"
-          onClick={() => {
-            setShow(!show);
-          }}
-          onMouseEnter={change}
-          onMouseOut={change}
-        >
-          Ɵ
-        </button>
-      </div>
+      <button
+        className="button-photo button-avatar"
+        onClick={() => {
+          setShow(!show);
+        }}
+        onMouseEnter={change}
+        onMouseOut={change}
+      >
+        Ɵ
+      </button>
     </div>
   );
 };

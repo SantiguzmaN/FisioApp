@@ -10,12 +10,12 @@ const PatientProfile = () => {
   return (
     <div classNamerow="w-100">
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-4">
           <Avatar />
           <PatientRecord />
           <button className="button">Reporte grafico</button>
         </div>
-        <div className="border col-md-8">
+        <div className="border col-8">
           <PatientInfo />
           <div className="border rg-appointment-Container">
             <AppointmentGR />

@@ -10,42 +10,50 @@
   width: 180px;
   height: 180px;
 }
+
 .patient-Info-Container {
   height: 45vh;
   margin-top: 10px;
 }
+
 .rg-appointment-Container {
   height: 50vh;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .patient-record-container {
-  margin: "50px";
+  margin: 50px;
   border: ridge;
 }
+
 .button {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 140px;
+  margin: 140px auto auto auto;
 }
+
 .button-avatar {
   border-radius: 100%;
   background-color: gray;
 }
+
 .button-photo {
   display: block;
-  margin: 10px auto auto auto;
+  margin: 10px auto auto;
+  margin-bottom: 30px;
 }
+
 .global {
   height: 40vh;
   border: 1px solid #ddd;
   background: #f1f1f1;
   overflow-y: scroll;
 }
+
 .mensajes {
   height: auto;
 }
+
 .texto {
   padding: 4px;
   background: #fff;

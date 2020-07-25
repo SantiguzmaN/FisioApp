@@ -6,10 +6,10 @@ const PatientRecord = () => {
   };
   const citas = ["cita uno", "cita dos", "cita tres"];
   return (
-    <div className="">
+    <div className="patient-record-container ">
       <h5>Historial</h5>
       {citas.map((item) => (
-        <p className="border" id="clic" onClick={onClick}>
+        <p className="border" onClick={onClick}>
           {item}
         </p>
       ))}
