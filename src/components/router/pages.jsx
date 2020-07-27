@@ -9,9 +9,9 @@ import LoggedOutRoute from './loggedOutRoute';
 const Pages = () => {
   return (
     <Switch>
-      <LoggedInRoute path="/" exact={true} component={Home} />
-      <LoggedOutRoute path="/login" exact={true} component={Login} />
-      <LoggedOutRoute path="/signup" exact={true} component={Signup} />
+      <LoggedInRoute path="/" exact component={Home} />
+      <LoggedOutRoute path="/login" exact component={Login} />
+      <LoggedOutRoute path="/signup" exact component={Signup} />
     </Switch>
   );
 };

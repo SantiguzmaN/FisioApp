@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import Background from '../shared/background';
+import { signupFetch } from '../../actions/loginActions';
 import history from '../../history';
 import '../../styles/forms.css';
 
 const Signup = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName,] = useState('');
+  const [email, setEmail,] = useState('');
+  const [password, setPassword,] = useState('');
+  const [confirmPassword, setConfirmPassword,] = useState('');
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
+    const data = { name, email, password };
     if (password !== confirmPassword) {
-      toast.error('Las contraseñas no coinciden')
+      toast.error('Las contraseñas no coinciden');
     } else {
-      toast.success('Las contraseñas coinciden')
-      history.push('/');
-      //Falta hacer la verificación en el backend
+      toast.success('Las contraseñas coinciden');
+      signupFetch(data).then(info => {
+        if (info === false) {
+          toast.warn('Problemas de conexion, intentelo nuevamente');
+        } else if (info.status === false) {
+          toast.error('El usuario ya existe. Intente iniciar sesion');
+        } else if (info.status === true) {
+          toast.success(`El usuario ${email} ha sido registrado con exito. Ahora puede iniciar sesion`);
+          history.push('/login');
+        }
+      });
     }
-  }
+  };
 
   return (
     <Background>
@@ -79,6 +89,6 @@ const Signup = () => {
       </div>
     </Background>
   );
-}
+};
 
 export default Signup;

@@ -1,19 +1,17 @@
-import React from "react";
-import Avatar from "../patientProfile/Avatar";
-import PatientRecord from "../patientProfile/PatientRecord";
-import PatientInfo from "../patientProfile/PatientInfo";
-import AppointmentGR from "../patientProfile/AppointmentGR";
-import { useState } from "react";
+import React from 'react';
+import Avatar from './Avatar';
+import PatientRecord from './PatientRecord';
+import PatientInfo from './PatientInfo';
+import AppointmentGR from './AppointmentGR';
 
 const PatientProfile = () => {
-  const [panel, setPanel] = useState(<React.Fragment />);
   return (
-    <div classNamerow="w-100">
+    <div className="w-100">
       <div className="row">
         <div className="col-4">
           <Avatar />
           <PatientRecord />
-          <button className="button">Reporte grafico</button>
+          <button type="button" className="button">Reporte grafico</button>
         </div>
         <div className="border col-8">
           <PatientInfo />
