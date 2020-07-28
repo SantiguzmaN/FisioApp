@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
-import  CalendarComponent   from "../calendar/calendar";
+import  Calendar   from "../calendar/calendar";
 
 import PatientProfile from '../patientProfile/patientProfile';
 import '../../styles/home.css';
@@ -40,7 +40,7 @@ const Home = () => {
           </button>
         </div>
         <div id = 'root' className="border col-9 principal-Container">
-          <CalendarComponent />
+          <Calendar />
           {/*<PatientProfile />*/}
         </div>
       </div>
