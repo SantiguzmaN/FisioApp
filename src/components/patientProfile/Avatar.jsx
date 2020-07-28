@@ -4,8 +4,8 @@ import Webcam from 'react-webcam';
 import '../../styles/patientProfile.css';
 
 const Avatar = () => {
-  const [show, setShow,] = useState(true);
-  const [tex, setText,] = useState(false);
+  const [show, setShow] = useState(true);
+  const [tex, setText] = useState(false);
   const change = (e) => {
     tex
       ? (e.target.style.background = 'grey')

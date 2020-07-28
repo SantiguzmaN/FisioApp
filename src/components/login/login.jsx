@@ -8,8 +8,8 @@ import history from '../../history';
 import '../../styles/forms.css';
 
 const Login = () => {
-  const [email, setEmail,] = useState('');
-  const [password, setPassword,] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const userDispatch = useUserDispatch();
 
   const handleLoginSubmit = (e) => {
