@@ -1,21 +1,21 @@
-import React from "react";
-import "../../styles/patientProfile.css";
+import React from 'react';
+import '../../styles/patientProfile.css';
 
 const PatientInfo = () => {
   const patientData = {
-    name: "nombre",
-    lastName: "apellido",
-    old: "edad",
-    cc: "cc",
-    email: "correo electronico",
-    rh: "tipo de sangre",
-    eps: "eps",
-    movil: "celular",
-    phone: "fijo",
-    allergies: "alergias",
-    basePathology: "patologias de base",
-    companion: "nombre acompañante",
-    companionMovil: "celular del acompañante",
+    name: 'nombre',
+    lastName: 'apellido',
+    old: 'edad',
+    cc: 'cc',
+    email: 'correo electronico',
+    rh: 'tipo de sangre',
+    eps: 'eps',
+    movil: 'celular',
+    phone: 'fijo',
+    allergies: 'alergias',
+    basePathology: 'patologias de base',
+    companion: 'nombre acompañante',
+    companionMovil: 'celular del acompañante'
   };
   return (
     <div className="border patient-Info-Container">

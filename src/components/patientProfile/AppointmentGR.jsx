@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const AppointmentGR = () => {
-  return <div></div>;
-};
+const AppointmentGR = () => <div />;
 
 export default AppointmentGR;

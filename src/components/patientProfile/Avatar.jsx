@@ -1,15 +1,15 @@
-import React from "react";
-import Webcam from "react-webcam";
-import { useState } from "react";
-import "../../styles/patientProfile.css";
+import React, { useState } from 'react';
+import Webcam from 'react-webcam';
+
+import '../../styles/patientProfile.css';
 
 const Avatar = () => {
   const [show, setShow] = useState(true);
   const [tex, setText] = useState(false);
   const change = (e) => {
     tex
-      ? (e.target.style.background = "grey")
-      : (e.target.style.background = "black");
+      ? (e.target.style.background = 'grey')
+      : (e.target.style.background = 'black');
     setText(!tex);
   };
   return (
