@@ -12,21 +12,21 @@ const calendar = () => {
     title: "Actividad Fisica",
     start: new Date('2020-07-05 10:22:00'),
     end: new Date('2020-07-05 10:42:00')
-  },
-  ]
+  }];
   
   return (
-      <div>
-        <div style={{ height: '500pt'}}>
-          <Calendar
-            events={myEvents}
-            startAccessor="start"
-            endAccessor="end"
-            defaultDate={moment().toDate()}
-            localizer={localizer}
-          />
-        </div>
+    <div>
+      <div style={{ height: '500pt'}}>
+        <Calendar
+          events={myEvents}
+          startAccessor="start"
+          endAccessor="end"
+          defaultDate={moment().toDate()}
+          localizer={localizer}
+        />
       </div>
-    );
+    </div>
+  );
 };
+
 export default calendar;
