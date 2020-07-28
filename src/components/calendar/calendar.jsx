@@ -7,7 +7,7 @@ require('moment/locale/es.js');
 const localizer = momentLocalizer(moment);
 
 const calendar = () => {
-
+  //  ToDo . this event must be received as param
   const myEvents= [{
     title: "Actividad Fisica",
     start: new Date('2020-07-05 10:22:00'),

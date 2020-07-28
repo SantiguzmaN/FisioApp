@@ -14,20 +14,20 @@ const Login = () => {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    loginFetch(email, password).then(data => {
+    loginFetch(email, password).then((data) => {
       if (data === false) {
         toast.warn('Problemas de conexion, intentelo nuevamente');
-      } else {
-        if (data.status === false) {
-          toast.error('El usuario y la contraseña no coiciden. Verifique e intentelo nuevamente')
-        } else if (data && data.status === true) {
-          toast.success(`El usuario ${data.userName} si existe`);
-          userDispatch({type: 'USER_SIGN_IN', payload: data});
-          history.push('/');
-        }
+      } else if (data.status === false) {
+        toast.error(
+          'El usuario y la contraseña no coinciden. Verifique e intentelo nuevamente'
+        );
+      } else if (data && data.status === true) {
+        toast.success(`Iniciando sesion con el usuario: ${data.userName}`);
+        userDispatch({ type: 'USER_SIGN_IN', payload: data });
+        history.push('/');
       }
     });
-  }
+  };
 
   return (
     <Background>
@@ -37,7 +37,11 @@ const Login = () => {
           data-testid="login-form"
           onSubmit={handleLoginSubmit}
         >
-          <img className="img-form-logo mb-4 mx-center" src={`${process.env.PUBLIC_URL}/tata.jpg`} alt="FISIOAPP" />
+          <img
+            className="img-form-logo mb-4 mx-center"
+            src={`${process.env.PUBLIC_URL}/tata.jpg`}
+            alt="FISIOAPP"
+          />
           <input
             type="email"
             className="form-control mb-4"
@@ -45,7 +49,7 @@ const Login = () => {
             name="email"
             placeholder="Correo Electronico"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <input
@@ -55,23 +59,26 @@ const Login = () => {
             name="password"
             placeholder="Contraseña"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button
+            className="btn btn-info btn-block my-4"
+            type="submit"
+            data-testid="submit"
+          >
+            Iniciar Sesion
+          </button>
           <div className="d-flex justify-content-around">
             <Link
               to={{
-                pathname: '/forgot-password',
-                state: { email },
+                pathname: '/signup'
               }}
-              title="Forgot Password"
+              title="Sign Up"
             >
-              Olvidaste la contraseña?
+              Regístrate
             </Link>
           </div>
-          <button className="btn btn-info btn-block my-4" type="submit" data-testid="submit">
-            Iniciar Sesion
-          </button>
         </form>
       </div>
     </Background>

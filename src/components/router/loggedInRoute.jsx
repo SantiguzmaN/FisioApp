@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ const LoggedInRoute = ({ component: Component }) => {
     return <Redirect to="/login" />;
   }
   return (
-        <Route render={(otherProps) => <Component {...otherProps} />} />
+    <Route render={(otherProps) => <Component {...otherProps} />} />
   );
 };
 export default LoggedInRoute;
