@@ -27,7 +27,7 @@ const Home = () => {
           </h4>
           <h4> NOMBRE DEL CONSULTORIO </h4>
           <div className="border w-100">
-            <p> </p>
+            {/* here must go the calendar */}
           </div>
           <button type="button" onClick={() => logOutFetch()}>
             Gestionar Cita
