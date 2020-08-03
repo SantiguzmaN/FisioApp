@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
-import  Calendar   from "../calendar/calendar";
-import PatientProfile from '../patientProfile/patientProfile';
+import  Calendar   from '../calendar/calendar';
+//import PatientProfile from '../patientProfile/patientProfile';
 import '../../styles/home.css';
 
 const Home = () => {
