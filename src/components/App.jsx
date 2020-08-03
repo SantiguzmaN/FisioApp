@@ -16,6 +16,6 @@ const App = () => {
       <ToastContainer />
     </UserProvider>
   );
-}
+};
 
 export default App;
