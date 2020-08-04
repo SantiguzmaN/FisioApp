@@ -10,8 +10,8 @@ const localizer = momentLocalizer(moment);
 const messages={
   next: 'siguiente',
   previous: 'anterior',
-  today: ' Hoy ',
-  month: ' Mes ',
+  today: 'Hoy',
+  month: 'Mes',
   week: 'Sem',
   day: 'Dia',
 };
