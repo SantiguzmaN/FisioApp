@@ -25,7 +25,7 @@ const calendar = () => {
   }];
   
   return (
-    <div className="principal-c-calendar rbc-month-row">
+    <div className="principal-c-calendar">
       <Calendar
         events={myEvents}
         startAccessor="start"
