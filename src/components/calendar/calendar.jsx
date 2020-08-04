@@ -6,7 +6,6 @@ import '../../styles/calendar.css';
 
 require('moment/locale/es.js');  
 const localizer = momentLocalizer(moment);
-console.log(localizer);
 
 const messages={
   next: 'siguiente',
