@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div className="wrapper App">
       <div className="row w-100 principal-Container">
-        <div className="border col-3" id="childenConteiner">
+        <div className="border col-3 childenConteiner">
           <h4 id="usercolor">{userName}</h4>
           <img
             className="logo"
@@ -51,10 +51,7 @@ const Home = () => {
             Cerrar Sesion
           </button>
         </div>
-        <div
-          id="childenConteiner2"
-          className="border col-9 principal-Container"
-        >
+        <div className="border col-9 principal-Container childenConteiner2">
           <Calendar />
           {/*<PatientProfile />*/}
         </div>
