@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
 import  Calendar   from '../calendar/calendar';
-//import PatientProfile from '../patientProfile/patientProfile';
+import PatientProfile from '../patientProfile/patientProfile';
 import '../../styles/home.css';
 
 const Home = () => {
@@ -27,7 +27,7 @@ const Home = () => {
           </h4>
           <h4> NOMBRE DEL CONSULTORIO </h4>
           <div className="border w-100">
-            {/* here must go the calendar */}
+            <Calendar/>
           </div>
           <button type="button" onClick={() => logOutFetch()}>
             Gestionar Cita
@@ -39,9 +39,9 @@ const Home = () => {
             Cerrar Sesion
           </button>
         </div>
-        <div id = 'root' className="border col-9 principal-Container">
-          <Calendar />
-          {/*<PatientProfile />*/}
+        <div id = 'root' className="border col-9 principal-Container header_text">
+          {/*<Calendar />*/}
+          <PatientProfile />
         </div>
       </div>
     </div>
