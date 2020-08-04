@@ -40,7 +40,6 @@ const Home = () => {
           </button>
         </div>
         <div id = 'root' className="border col-9 principal-Container header_text">
-          {/*<Calendar />*/}
           <PatientProfile />
         </div>
       </div>
