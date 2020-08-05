@@ -7,6 +7,15 @@ import '../../styles/calendar.css';
 require('moment/locale/es.js');  
 const localizer = momentLocalizer(moment);
 
+const messages={
+  next: 'siguiente',
+  previous: 'anterior',
+  today: 'Hoy',
+  month: 'Mes',
+  week: 'Sem',
+  day: 'Dia',
+};
+
 const calendar = () => {
   //  ToDo . this event must be received as param
   const myEvents= [{
@@ -23,6 +32,7 @@ const calendar = () => {
         endAccessor="end"
         defaultDate={moment().toDate()}
         localizer={localizer}
+        messages = {messages}        
       />
     </div>
   );

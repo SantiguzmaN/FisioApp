@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { logOut } from "../../actions/loginActions";
-import { useUserState } from "../../store/userProvider";
-import Calendar from "../calendar/calendar";
-import PatientProfile from "../patientProfile/patientProfile";
-import "../../styles/home.css";
+import React, { useEffect, useState } from 'react';
+import { logOut } from '../../actions/loginActions';
+import { useUserState } from '../../store/userProvider';
+import  Calendar   from '../calendar/calendar';
+import PatientProfile from '../patientProfile/patientProfile';
+import '../../styles/home.css';
 
 const Home = () => {
   const { user } = useUserState();
-  const [userName, setUserName] = useState("USER NAME");
+  const [userName, setUserName] = useState('USER NAME');
 
   useEffect(() => {
     if (user) {
@@ -28,7 +28,9 @@ const Home = () => {
             src={`${process.env.PUBLIC_URL}/tata.jpg`}
             alt="FISIOAPP"
           />
-          <div className="border w-100">{/* here must go the calendar */}</div>
+          <div className="border w-100">
+            <Calendar/>
+          </div>
           <button
             type="button"
             className="btn btn-info btn-block my-4"
@@ -52,7 +54,6 @@ const Home = () => {
           </button>
         </div>
         <div className="border col-9 principal-Container childenConteiner2">
-          {/*<Calendar />*/}
           <PatientProfile />
         </div>
       </div>
