@@ -22,7 +22,7 @@ const Home = () => {
     <div className="wrapper App">
       <div className="row w-100 principal-Container">
         <div className="border col-3 childenConteiner">
-          <h4 id="usercolor">{userName}</h4>
+          <h4 className="usercolor">{userName}</h4>
           <img
             className="logo"
             src={`${process.env.PUBLIC_URL}/tata.jpg`}
@@ -52,8 +52,8 @@ const Home = () => {
           </button>
         </div>
         <div className="border col-9 principal-Container childenConteiner2">
-          <Calendar />
-          {/*<PatientProfile />*/}
+          {/*<Calendar />*/}
+          <PatientProfile />
         </div>
       </div>
     </div>
