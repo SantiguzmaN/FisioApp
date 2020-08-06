@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
-import  Calendar   from '../calendar/calendar';
+import Calendar from '../calendar/calendar';
 import PatientProfile from '../patientProfile/patientProfile';
 import '../../styles/home.css';
 
@@ -28,8 +28,8 @@ const Home = () => {
             src={`${process.env.PUBLIC_URL}/tata.jpg`}
             alt="FISIOAPP"
           />
-          <div className="border w-100">
-            <Calendar/>
+          <div className="border w-100 childenConteiner2">
+            <Calendar />
           </div>
           <button
             type="button"
@@ -47,7 +47,7 @@ const Home = () => {
           </button>
           <button
             type="button"
-            className="btn btn-info btn-block my-4"
+            className="btn btn-info btn-block my-4 ultimo"
             onClick={() => logOutFetch()}
           >
             Cerrar Sesion
@@ -62,3 +62,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
+

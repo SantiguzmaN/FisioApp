@@ -1,5 +1,10 @@
 import React from 'react';
 
-const AppointmentGR = () => <div />;
+const AppointmentGR = () => {
+    return (
+        <div />
+    )
+};
 
 export default AppointmentGR;
+
