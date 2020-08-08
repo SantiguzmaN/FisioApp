@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
-import  Calendar   from '../calendar/calendar';
-//import PatientProfile from '../patientProfile/patientProfile';
+import PoseNet from '../cameraFlow/camera'
+//import Calendar from '../calendar/calendar';
+import PatientProfile from '../patientProfile/patientProfile';
 import '../../styles/home.css';
 
 const Home = () => {
@@ -39,8 +40,9 @@ const Home = () => {
             Cerrar Sesion
           </button>
         </div>
-        <div id = 'root' className="border col-9 principal-Container">
-          <Calendar />
+        <div id='root' className="border col-9 principal-Container">
+          <PoseNet />
+          {/*<Calendar />*/}
           {/*<PatientProfile />*/}
         </div>
       </div>
