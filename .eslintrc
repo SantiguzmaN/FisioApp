@@ -11,13 +11,13 @@
     "jest": true
   },
   "rules": {
-    "max-len": ["error", {"code": 120}],
+    "max-len": ["error", { "code": 120 }],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
     "react/prop-types": ["warn"],
     "no-return-assign": ["off"],
     "quotes": [2, "single", { "avoidEscape": true }],
-    "semi":"error",
+    "semi": "error",
     "indent": [2, 2],
     "eol-last": ["error", "always"]
   }
