@@ -16,7 +16,3 @@ const PatientRecord = () => {
 };
 
 export default PatientRecord;
-
-
-
-

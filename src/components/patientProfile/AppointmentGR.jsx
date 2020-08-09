@@ -7,5 +7,3 @@ const AppointmentGR = () => {
 };
 
 export default AppointmentGR;
-
-
