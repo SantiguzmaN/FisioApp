@@ -5,7 +5,7 @@ const Patient = () => {
     const patientData = {
         name: 'nombre del paciente',
         lastName: 'apellido',
-        old: 'edad',
+        age: 'edad',
         cc: 'cc',
         email: 'correo electronico',
         rh: 'tipo de sangre',
@@ -22,7 +22,7 @@ const Patient = () => {
         <div>
             <div>{patientData.name}</div>
             <div>{patientData.lastName}</div>
-            <div>{patientData.old}</div>
+            <div>{patientData.age}</div>
             <div>{patientData.cc}</div>
             <div>{patientData.email}</div>
             <div>{patientData.rh}</div>

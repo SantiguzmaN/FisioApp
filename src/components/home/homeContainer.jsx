@@ -47,7 +47,7 @@ const Home = () => {
           </button>
           <button
             type="button"
-            className="btn btn-info btn-block my-4 ultimo"
+            className="btn btn-info btn-block my-4"
             onClick={() => logOutFetch()}
           >
             Cerrar Sesion
