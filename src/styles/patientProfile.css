@@ -5,13 +5,14 @@
   justify-content: center;
   border: ridge;
   border-radius: 100%;
-  background-color: green;
+  background-color: rgb(55, 188, 206);
   margin: 20px auto auto;
   width: 180px;
   height: 180px;
 }
 
 .patient-Info-Container {
+  background-color: #61dafb;
   height: 45vh;
   margin-top: 10px;
 }
@@ -23,6 +24,7 @@
 }
 
 .patient-record-container {
+  background-color: rgb(229, 235, 238);
   margin: 50px;
   border: ridge;
 }
@@ -58,3 +60,4 @@
   padding: 4px;
   background: #fff;
 }
+

@@ -32,5 +32,7 @@
   margin-bottom: 10px;
 }
 
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+.wrapper form {
+  border-radius: 20px;
+  box-shadow :0 30px 60px 0 rgba(0, 0, 0, 0.3);
 }
