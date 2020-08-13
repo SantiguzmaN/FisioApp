@@ -5,12 +5,12 @@ import '../../styles/patientProfile.css';
 
 const Avatar = () => {
   const [show, setShow] = useState(true);
-  const [tex, setText] = useState(false);
+  const [text, setText] = useState(false);
   const change = (e) => {
-    tex
+    text
       ? (e.target.style.background = 'grey')
       : (e.target.style.background = 'black');
-    setText(!tex);
+    setText(!text);
   };
   return (
     <div>

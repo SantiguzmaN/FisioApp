@@ -1,9 +1,9 @@
 import React from 'react';
 
 const AppointmentGR = () => {
-    return (
-        <div />
-    )
+  return (
+    <div />
+  );
 };
 
 export default AppointmentGR;
