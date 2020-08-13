@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
-import  Calendar   from '../calendar/calendar';
+import  BigCalendar   from '../calendar/calendar';
+import  Form   from '../calendar/Form';
 import PatientProfile from '../patientProfile/patientProfile';
 import '../../styles/home.css';
 
@@ -29,7 +30,7 @@ const Home = () => {
             alt="FISIOAPP"
           />
           <div className="border w-100">
-            <Calendar/>
+            <BigCalendar/>
           </div>
           <button
             type="button"
@@ -54,7 +55,8 @@ const Home = () => {
           </button>
         </div>
         <div className="border col-9 principal-Container childenConteiner2">
-          <PatientProfile />
+          <Form/>
+          {/*<PatientProfile />*/}
         </div>
       </div>
     </div>
