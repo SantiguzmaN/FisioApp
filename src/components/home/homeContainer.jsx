@@ -3,6 +3,7 @@ import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
 import { useHomeBoardDispatch } from '../../store/homeBoardProvider';
 
+
 import  Calendar   from '../calendar/calendar';
 import HomeBoard from '../homeBoard/homeBoard';
 import '../../styles/home.css';
@@ -11,7 +12,6 @@ const Home = () => {
   const { user } = useUserState();
   const homeBoardDispatch = useHomeBoardDispatch();
   const [userName, setUserName] = useState('USER NAME');
-
   useEffect(() => {
     if (user) {
       setUserName(user.userName);
@@ -23,19 +23,23 @@ const Home = () => {
   };
 
   const openPatientProfile = () => {
-    homeBoardDispatch({type: 'SET_STATE', payload: 'patientProfile'});
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'patientProfile' });
   };
 
   const openCalendar = () => {
-    homeBoardDispatch({type: 'SET_STATE', payload: 'calendar'});
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'calendar' });
   };
 
   const openPosenet = () => {
-    homeBoardDispatch({type: 'SET_STATE', payload: 'posenet'});
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'posenet' });
+  };
+
+  const openPatientManagement = () => {
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'modal' });
   };
 
   return (
-    <div className="wrapper App">
+    <div className="wrapper app">
       <div className="row w-100 h-100 principal-Container">
         <div className="border col-3 childenConteiner">
           <h4 className="usercolor">{userName}</h4>
@@ -55,6 +59,9 @@ const Home = () => {
           </button>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPatientProfile()}>
             Gestionar Paciente
+          </button>
+          <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPatientManagement()}>
+            Gestionar Citas
           </button>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => logOutFetch()}>
             Cerrar Sesion

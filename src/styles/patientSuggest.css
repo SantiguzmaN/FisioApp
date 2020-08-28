@@ -1,0 +1,15 @@
+.suggest-button {
+  background-color: darkgray !important;
+  color: white !important;
+  margin-left: 5px;
+}
+
+.patient-suggest-container {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  width: 100% !important;
+}
+
+.suggest-name {
+  margin-top: 5px;
+}
