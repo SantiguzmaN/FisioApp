@@ -20,11 +20,11 @@ const Signup = () => {
       toast.success('Las contraseñas coinciden');
       signupFetch(data).then(info => {
         if (info === false) {
-          toast.warn('Problemas de conexion, intentelo nuevamente');
+          toast.warn('Problemas de conexión, intentelo nuevamente');
         } else if (info.status === false) {
-          toast.error('El usuario ya existe. Intente iniciar sesion');
+          toast.error('El usuario ya existe. Intente iniciar sesión');
         } else if (info.status === true) {
-          toast.success(`El usuario ${email} ha sido registrado con exito. Ahora puede iniciar sesion`);
+          toast.success(`El usuario ${email} ha sido registrado con éxito. Ahora puede iniciar sesión`);
           history.push('/login');
         }
       });
