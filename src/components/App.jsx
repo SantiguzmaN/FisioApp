@@ -6,6 +6,7 @@ import history from '../history';
 import UserProvider from '../store/userProvider';
 import CalendarProvider from '../store/calendarProvider';
 import HomeBoardProvider from '../store/homeBoardProvider';
+import SearchProvider from '../store/searchProvider';
 
 
 import '../App.css';
@@ -15,12 +16,14 @@ const App = () => {
   return (
     <HomeBoardProvider>
       <CalendarProvider>
-        <UserProvider>
-          <Router history={history}>
-            <Route component={Pages} />
-          </Router>
-          <ToastContainer />
-        </UserProvider>
+        <SearchProvider>
+          <UserProvider>
+            <Router history={history}>
+              <Route component={Pages} />
+            </Router>
+            <ToastContainer />
+          </UserProvider>
+        </SearchProvider>
       </CalendarProvider>
     </HomeBoardProvider>
   );

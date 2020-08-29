@@ -24,8 +24,8 @@ const Home = () => {
     logOut();
   };
 
-  const openPatientProfile = () => {
-    homeBoardDispatch({ type: 'SET_STATE', payload: 'patientProfile' });
+  const openSearchPatient = () => {
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'searchPatient' });
   };
 
   const openCalendar = () => {
@@ -59,7 +59,7 @@ const Home = () => {
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openCalendar()} >
             ir a Calendario
           </button>
-          <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPatientProfile()}>
+          <button type="button" className="btn btn-info btn-block my-4" onClick={() => openSearchPatient()}>
             Gestionar Paciente
           </button>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPatientManagement()}>
@@ -69,9 +69,7 @@ const Home = () => {
             Cerrar Sesion
           </button>
         </div>
-        <div className="border col-9 principal-Container childenConteiner2">
-          <Form/>
-          {/*<PatientProfile />*/}
+        <div className="col-9 childenConteiner">
           <HomeBoard />
         </div>
       </div>
