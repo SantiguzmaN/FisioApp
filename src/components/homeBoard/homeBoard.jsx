@@ -4,6 +4,7 @@ import PatientProfile from '../patientProfile/patientProfile';
 import PatientManagement from '../patientManagement/patientManagement';
 import Calendar from '../calendar/calendar';
 import PoseNet from '../cameraFlow/camera';
+import EditPatient from '../editProfile/editProfile';
 import SearchPatient from '../searchPatient/searchPatient';
 import '../../styles/homeBoard.css';
 
@@ -29,6 +30,8 @@ const HomeBoard = () => {
         case 'modal':
           toggleComponet(<PatientManagement />);
           break;
+        case 'editPatient':
+          toggleComponet(<EditPatient />);
         case 'searchPatient':
           toggleComponet(<SearchPatient />);
           break;
