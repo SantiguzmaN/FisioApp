@@ -3,7 +3,6 @@ import '../../styles/patientProfile.css';
 import Patient from '../patient/patient';
 
 const PatientInfo = () => {
-
   return (
     <div className="border patient-Info-Container">
       <h5 className="usercolor">Información del paciente</h5>

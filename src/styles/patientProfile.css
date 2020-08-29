@@ -17,9 +17,8 @@
 }
 
 .rg-appointment-Container {
-  height: 50vh;
+  height: 53vh;
   margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .patient-record-container {
@@ -55,7 +54,7 @@
   height: auto;
 }
 
-.texto {
-  padding: 4px;
+.text {
   background: #fff;
+  height: 103vh;
 }

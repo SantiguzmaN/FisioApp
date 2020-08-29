@@ -1,30 +1,30 @@
-import React, { useState } from "react";
-import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
-import { loginFetch } from "../../actions/loginActions";
-import { useUserDispatch } from "../../store/userProvider";
-import Background from "../shared/background";
-import history from "../../history";
-import "../../styles/forms.css";
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import { loginFetch } from '../../actions/loginActions';
+import { useUserDispatch } from '../../store/userProvider';
+import Background from '../shared/background';
+import history from '../../history';
+import '../../styles/forms.css';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const userDispatch = useUserDispatch();
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     loginFetch(email, password).then((data) => {
       if (data === false) {
-        toast.warn("Problemas de conexion, intentelo nuevamente");
+        toast.warn('Problemas de conexion, intentelo nuevamente');
       } else if (data.status === false) {
         toast.error(
-          "El usuario y la contraseña no coinciden. Verifique e intentelo nuevamente"
+          'El usuario y la contraseña no coinciden. Verifique e intentelo nuevamente'
         );
       } else if (data && data.status === true) {
         toast.success(`Iniciando sesion con el usuario: ${data.userName}`);
-        userDispatch({ type: "USER_SIGN_IN", payload: data });
-        history.push("/");
+        userDispatch({ type: 'USER_SIGN_IN', payload: data });
+        history.push('/');
       }
     });
   };
@@ -72,7 +72,7 @@ const Login = () => {
           <div className="d-flex justify-content-around">
             <Link
               to={{
-                pathname: "/signup",
+                pathname: '/signup',
               }}
               title="Sign Up"
             >

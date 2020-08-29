@@ -5,6 +5,7 @@ import PatientManagement from '../patientManagement/patientManagement';
 import Calendar from '../calendar/calendar';
 import PoseNet from '../cameraFlow/camera';
 import EditPatient from '../editProfile/editProfile';
+import SearchPatient from '../searchPatient/searchPatient';
 import '../../styles/homeBoard.css';
 
 const HomeBoard = () => {
@@ -14,6 +15,9 @@ const HomeBoard = () => {
   useEffect(() => {
     if (toOpen) {
       switch (toOpen) {
+        case 'notFound':
+          toggleComponet(<h1>EL PACIENTE NO EXISTE</h1>);
+          break;
         case 'patientProfile':
           toggleComponet(<PatientProfile />);
           break;
@@ -28,6 +32,8 @@ const HomeBoard = () => {
           break;
         case 'editPatient':
           toggleComponet(<EditPatient />);
+        case 'searchPatient':
+          toggleComponet(<SearchPatient />);
           break;
         default:
           toggleComponet(<h1>ESTE TABLERO CAMBIA SEGUN LA SELECCION DEL BOTON</h1>);

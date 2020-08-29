@@ -1,12 +1,19 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useSearchState } from '../../store/searchProvider';
+import { useState } from 'react';
 
 const PatientRecord = () => {
-
-  const citas = ['cita uno', 'cita dos', 'cita tres'];
+  const [apoiment, setapoiment] = useState(['1', '2', '3']);
+  const { user } = useSearchState();
+  useEffect(() => {
+    if (user) setapoiment(user.appointment)
+  }, [user]);
+  console.log(apoiment);
   return (
     <div className="patient-record-container">
       <h5>Historial</h5>
-      {citas.map((item) => (
+      {apoiment.map((item) => (
         <h6>
           {item}
         </h6>
