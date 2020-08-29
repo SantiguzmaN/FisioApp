@@ -9,7 +9,6 @@ const PatientRecord = () => {
   useEffect(() => {
     if (user) setapoiment(user.appointment)
   }, [user]);
-  console.log(apoiment);
   return (
     <div className="patient-record-container">
       <h5>Historial</h5>

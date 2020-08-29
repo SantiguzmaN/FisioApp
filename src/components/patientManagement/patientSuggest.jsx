@@ -1,20 +1,31 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../../styles/patientSuggest.css';
 import { getPatient } from '../../actions/patientActions.jsx';
 import { useSearchDispatch } from '../../store/searchProvider';
 import { useHomeBoardDispatch } from '../../store/homeBoardProvider';
 import { toast } from 'react-toastify';
-
+import { useUserDispatch } from '../../store/userProvider';
 
 const PatientSuggest = (user) => {
-  console.log('usuario', user);
   const [userName, setUserName] = useState(user.user.nombre);
-  const [userCc, setUserCc] = useState(user.cc);
   const homeBoardDispatch = useHomeBoardDispatch();
+  const [userCc, setUserCc] = useState(user.cc);
   const searchDispatch = useSearchDispatch();
+  const userDispatch = useUserDispatch();
 
   const openEditPatient = () => {
-    homeBoardDispatch({ type: 'SET_STATE', payload: 'editPatient' });
+    getPatient(userCc).then((data) => {
+      if (data === false) {
+        toast.warn('Problemas de conexion, intentelo de nuevo');
+      } else if (data.status === false) {
+        toast.error(
+          'El usuario no existe. Verifique e intentelo de nuevo'
+        );
+      } else if (data && data.status === true) {
+        homeBoardDispatch({ type: 'SET_STATE', payload: 'editPatient' });
+        userDispatch({ type: 'USER_TO_EDIT', payload: data })
+      }
+    });
   };
 
   const openPatientProfile = () => {
@@ -23,7 +34,7 @@ const PatientSuggest = (user) => {
         toast.warn('Problemas de conexion, intentelo de nuevo');
       } else if (data.status === false) {
         toast.error(
-          'El usuario no exite. Verifique e intentelo de nuevo'
+          'El usuario no existe. Verifique e intentelo de nuevo'
         );
       } else if (data && data.status === true) {
         searchDispatch({ type: 'SET_USER', payload: data });
@@ -35,7 +46,6 @@ const PatientSuggest = (user) => {
   const openAppointmentManagement = () => {
     homeBoardDispatch({ type: 'SET_STATE', payload: 'AppointmentManagement' });
   };
-
 
   return (
     <div className="row border patient-suggest-container">
