@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FaUserInjured } from 'react-icons/fa';
 import { TiUserAdd } from 'react-icons/ti';
+import { toast } from 'react-toastify';
 import PatientSuggest from './patientSuggest';
+import { getAllPatient } from '../../actions/patientActions';
+import { useUserDispatch } from '../../store/userProvider';
 import '../../styles/modal.css';
 
 
 const PatientManagement = () => {
+  const [allUsers, setAllUsers] = useState([]);
   let patientToFind;
   const handleChange = e => {
     patientToFind = e.target.value;
@@ -13,6 +17,21 @@ const PatientManagement = () => {
 
   const closeModal = () => {
   };
+
+  useEffect(() => {
+    getAllPatient().then((data) => {
+      if (data === false) {
+        toast.warn('Problemas de conexion, intentelo nuevamente');
+      } else if (!data[0]) {
+        toast.error(
+          'El usuario y la contraseña no coinciden. Verifique e intentelo nuevamente'
+        );
+      } else if (data[0]) {
+        toast.success('Usuarios Actualizados');
+        setAllUsers(data);
+      }
+    });
+  });
 
   return (
     <div className="appoitment-modal">
@@ -29,7 +48,9 @@ const PatientManagement = () => {
           <div className="row border">
             <p className="ml-5 mt-2">Resultados</p>
           </div>
-          <PatientSuggest />
+          {allUsers.map((user, i) => {
+            return <PatientSuggest user={user} key={i+user}/>;
+          })}
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" onClick={() => closeModal()}>

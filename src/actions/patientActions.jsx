@@ -17,19 +17,48 @@ const patientData = {
     companionMovil: '32222222',
     status: true
 };
+
+const allUsers = [
+  {nombre: 'R2D2' , cc: '123' },
+  {nombre: 'C3PO' , cc: '234' },
+  {nombre: 'Luke', cc: '345' },
+  {nombre: 'Leia', cc: '456' },
+  {nombre: 'Han', cc: '567' },
+  {nombre: 'DARK VADER', cc: '666' },
+  {nombre: 'Yoda', cc: '000' },
+];
+
+
 export function getPatient(userIdentification) {
-    return fetch(`${process.env.REACT_APP_SERVER_URL}/getPatient`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-        },
-        body: JSON.stringify({ userIdentification })
-    })
-        .then((resp) => resp.json())
-        .catch(() => patientData)
-        .then((data) => {
-            localStorage.setItem('token', data.token);
-            return data;
-        });
-}
+  return fetch(`${process.env.REACT_APP_SERVER_URL}/getPatient`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+    },
+    body: JSON.stringify({ userIdentification })
+  })
+  .then((resp) => resp.json())
+  .catch(() => patientData)
+  .then((data) => {
+      localStorage.setItem('token', data.token);
+      return data;
+  });
+};
+
+export const getAllPatient = () => {
+  return fetch(`${process.env.REACT_APP_SERVER_URL}/getUsers`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+  })
+    .then((resp) => resp.json())
+    .catch(
+      () => allUsers
+      // ToDo... Cuando el backend este listo, esta respuesta se retornara en la linea 18.
+      // return false;
+    )
+    .then((data) => data);
+};

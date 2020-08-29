@@ -1,7 +1,7 @@
 .appoitment-modal {
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  background-color: #61dafb;
+  background-color: lightyellow;
   display:block;
   color: black !important;
   padding-left: 25px;
@@ -11,5 +11,5 @@
 .appoitment-header {
   margin: 30px 20px;
   padding: 30px 20px;
-  color:white;
+  color:black;
 }

@@ -9,6 +9,13 @@ export const userReducer = (state, action) => {
     };
   case 'USER_SIGN_OUT':
     return {};
+
+  case 'SET_ALL_USERS':
+    return {
+      ...state,
+      allUsers: action.payload,
+    };
+
   default:
     return state;
   }
