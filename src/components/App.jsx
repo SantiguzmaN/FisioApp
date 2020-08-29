@@ -5,6 +5,7 @@ import Pages from './router/pages';
 import history from '../history';
 import UserProvider from '../store/userProvider';
 import HomeBoardProvider from '../store/homeBoardProvider';
+import SearchProvider from '../store/searchProvider';
 
 
 import '../App.css';
@@ -12,14 +13,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <HomeBoardProvider>
-      <UserProvider>
-        <Router history={history}>
-          <Route component={Pages} />
-        </Router>
-        <ToastContainer />
-      </UserProvider>
-    </HomeBoardProvider>
+    <SearchProvider>
+      <HomeBoardProvider>
+        <UserProvider>
+          <Router history={history}>
+            <Route component={Pages} />
+          </Router>
+          <ToastContainer />
+        </UserProvider>
+      </HomeBoardProvider>
+    </SearchProvider>
+
   );
 };
 

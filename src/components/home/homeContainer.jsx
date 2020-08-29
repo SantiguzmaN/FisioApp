@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
 import { useHomeBoardDispatch } from '../../store/homeBoardProvider';
-
-
-import  Calendar   from '../calendar/calendar';
+import Calendar from '../calendar/calendar';
 import HomeBoard from '../homeBoard/homeBoard';
 import '../../styles/home.css';
 
@@ -22,8 +20,8 @@ const Home = () => {
     logOut();
   };
 
-  const openPatientProfile = () => {
-    homeBoardDispatch({ type: 'SET_STATE', payload: 'patientProfile' });
+  const openSearchPatient = () => {
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'searchPatient' });
   };
 
   const openCalendar = () => {
@@ -49,7 +47,7 @@ const Home = () => {
             alt="FISIOAPP"
           />
           <div className="border w-100">
-            <Calendar/>
+            <Calendar />
           </div>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPosenet()} >
             Ir al Posenet
@@ -57,7 +55,7 @@ const Home = () => {
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openCalendar()} >
             ir a Calendario
           </button>
-          <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPatientProfile()}>
+          <button type="button" className="btn btn-info btn-block my-4" onClick={() => openSearchPatient()}>
             Gestionar Paciente
           </button>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPatientManagement()}>
@@ -67,7 +65,7 @@ const Home = () => {
             Cerrar Sesion
           </button>
         </div>
-        <div className="col-9 border ">
+        <div className="col-9 childenConteiner">
           <HomeBoard />
         </div>
       </div>
