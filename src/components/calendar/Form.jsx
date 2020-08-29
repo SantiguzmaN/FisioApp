@@ -4,13 +4,17 @@ import { useCalendarDispatch } from '../../store/calendarProvider';
 const Form = () => {
   const calendarDispatch = useCalendarDispatch();
   const [title, setTitle] = useState('');
+  // cc y name tiene que ser cambiado por los datos del paciente.
+  const cc = '103204';
+  const name = 'pepe';
   const [start, setStart] = useState('');
   const [time, setTime] = useState('');
   const [time2, setTime2] = useState('');
   
   const Test = (e) => {
     const myEvents= {
-      title: title,
+      title: (title+', '+name),
+      cc: cc,
       start: new Date(start+' '+time),
       end: new Date(start+' '+time2)
     };
@@ -23,7 +27,8 @@ const Form = () => {
 
   const Delete = (e) =>{
     const myEvents= {
-      title: title,
+      title: (title+', '+name),
+      cc: cc,
       start: new Date(start+' '+time),
       end: new Date(start+' '+time2)
     };
@@ -31,8 +36,22 @@ const Form = () => {
     setTitle('');
   };
 
+  const Update = (e) =>{
+    const myEvents= {
+      title: (title+', '+name),
+      cc: cc,
+      start: new Date(start+' '+time),
+      end: new Date(start+' '+time2)
+    };
+    calendarDispatch({type: 'UPDATE_APPOINTMENT', payload: myEvents});
+    setTitle('');
+    setStart('');
+    setTime('');
+    setTime2('');
+  };
+
   return (
-    <div className="border principal-Form mx-auto my-auto" >
+    <div className="principal-Form mx-auto my-auto" >
       <div>
         <label id="title" className="col-6">Nombre de la actividad</label>
         <input className="col-6" name="title" id="title" type="text" value={title}
@@ -55,6 +74,9 @@ const Form = () => {
       </div>
       <button className="btn btn-info btn-block my-4" onClick={() => Test()}>
           Agendar Cita
+      </button>
+      <button className="btn btn-info btn-block my-4" onClick={() => Update()}>
+          Actualizar Cita
       </button>
       <button className="btn btn-info btn-block my-4" onClick={() => Delete()}>
           Borrar Cita

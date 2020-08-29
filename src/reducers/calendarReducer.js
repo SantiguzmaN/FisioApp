@@ -14,11 +14,23 @@ export const calendarReducer = (state, action) => {
         return element;
       }
     } );
+    
     return {
       ...state,
       cita: borrar,
     };
-
+  case 'UPDATE_APPOINTMENT':
+    const update = state.cita.map(element => {
+      if(element.title === action.payload.title){
+        element.start = action.payload.start;
+        element.end = action.payload.end;
+      }
+      return element;
+    } );
+    return {
+      ...state,
+      cita: update,
+    };
   default:
     return state;
   }
