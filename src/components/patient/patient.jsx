@@ -20,6 +20,7 @@ const Patient = () => {
   const [companion, setCompanion] = useState('');
   const [companionMovil, setCompanionMovil] = useState('');
   const { user } = useSearchState();
+
   useEffect(() => {
     if (user) {
       setName(user.name);

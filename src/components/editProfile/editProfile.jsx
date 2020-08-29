@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { useUserState } from '../../store/userProvider';
 import '../../styles/forms.css';
 
 const EditPatient = () => {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [sex, setSex] = useState('');
   const [age, setAge] = useState('');
   const [cc, setCc] = useState('');
   const [email, setEmail] = useState('');
@@ -16,11 +18,43 @@ const EditPatient = () => {
   const [basePathology, setBasePathology] = useState('');
   const [companion, setCompanion] = useState('');
   const [companionMovil, setCompanionMovil] = useState('');
+  const [button, setButton] = useState(<React.Fragment />);
+  const { userEdit } = useUserState();
+
+  useEffect(() => {
+    if (userEdit) {
+      setButton(
+        <button className="btn btn-info btn-block my-4" type="submit" data-testid="submit">
+          Actualizar
+        </button>
+      );
+      setName(userEdit.name);
+      setLastName(userEdit.lastName);
+      setSex(userEdit.sex);
+      setAge(userEdit.age);
+      setCc(userEdit.cc);
+      setEmail(userEdit.email);
+      setRh(userEdit.rh);
+      setEps(userEdit.eps);
+      setMovil(userEdit.movil);
+      setPhone(userEdit.phone);
+      setAllergies(userEdit.allergies);
+      setBasePathology(userEdit.basePathology);
+      setCompanion(userEdit.companion);
+      setCompanionMovil(userEdit.companionMovil);
+    } else {
+      setButton(
+        <button className="btn btn-info btn-block my-4" type="submit" data-testid="submit">
+          Crear Paciente
+        </button>
+      )
+    }
+  }, [userEdit]);
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
 
-    const data = { name, lastName, age, cc, email, rh, eps, movil, phone, allergies, basePathology, companion, companionMovil };
+    const data = { name, lastName, sex, age, cc, email, rh, eps, movil, phone, allergies, basePathology, companion, companionMovil };
   }
 
   return (
@@ -51,6 +85,16 @@ const EditPatient = () => {
           placeholder="Apellidos"
           value={lastName}
           onChange={e => setLastName(e.target.value)}
+          required
+        />
+        <input
+          type="sex"
+          className="form-control mb-4"
+          data-testid="sex"
+          name="sex"
+          placeholder="Sexo"
+          value={sex}
+          onChange={e => setAge(e.target.value)}
           required
         />
         <input
@@ -163,9 +207,7 @@ const EditPatient = () => {
           onChange={e => setCompanionMovil(e.target.value)}
           required
         />
-        <button className="btn btn-info btn-block my-4" type="submit" data-testid="submit">
-          Actualizar
-          </button>
+        {button}
       </form>
     </div>
   );
