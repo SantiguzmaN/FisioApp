@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
+import  BigCalendar   from '../calendar/calendar';
+import  Form   from '../calendar/Form';
+//import PatientProfile from '../patientProfile/patientProfile';
 import { useHomeBoardDispatch } from '../../store/homeBoardProvider';
-import Calendar from '../calendar/calendar';
+
+
 import HomeBoard from '../homeBoard/homeBoard';
 import '../../styles/home.css';
 
@@ -47,7 +51,7 @@ const Home = () => {
             alt="FISIOAPP"
           />
           <div className="border w-100">
-            <Calendar />
+            <BigCalendar/>
           </div>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPosenet()} >
             Ir al Posenet
