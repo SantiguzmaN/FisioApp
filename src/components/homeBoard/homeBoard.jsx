@@ -32,6 +32,7 @@ const HomeBoard = () => {
           break;
         case 'editPatient':
           toggleComponet(<EditPatient />);
+          break;
         case 'searchPatient':
           toggleComponet(<SearchPatient />);
           break;
