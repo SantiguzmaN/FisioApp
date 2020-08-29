@@ -7,10 +7,11 @@ import '../../styles/calendar.css';
 
 require('moment/locale/es.js');  
 
-
 const BigCalendar = () => {
   const localizer = momentLocalizer(moment);
   const { cita } = useCalendarState(); 
+
+  
 
   const messages={
     next: 'siguiente',
@@ -22,15 +23,7 @@ const BigCalendar = () => {
   };
   
   const myEvents = cita || [];
-  console.log(cita);
-  const event = [
-    {
-      title: 'des',
-      start: '11 2020 19:38:00 GMT-0500' ,
-      end: '11 2020 19:38:00 GMT-0500 '
-    }
-  ];
-
+  
   return (
     <div className="principal-c-calendar">
       <Calendar
@@ -39,7 +32,7 @@ const BigCalendar = () => {
         endAccessor="end"
         defaultDate={moment().toDate()}
         localizer={localizer}
-        messages = {messages}        
+        messages = {messages}   
       />
     </div>
   );

@@ -15,34 +15,50 @@ const Form = () => {
       end: new Date(start+' '+time2)
     };
     calendarDispatch({type: 'ADD_APPOINTMENT', payload: myEvents});
+    setTitle('');
+    setStart('');
+    setTime('');
+    setTime2('');
+  };
+
+  const Delete = (e) =>{
+    const myEvents= {
+      title: title,
+      start: new Date(start+' '+time),
+      end: new Date(start+' '+time2)
+    };
+    calendarDispatch({type: 'DELETE_APPOINTMENT', payload: myEvents});
+    setTitle('');
   };
 
   return (
-    <div className="principal-c-calendar">
-      {/*<form className="text-center"  onSubmit={Test}>*/}
+    <div className="border principal-Form mx-auto my-auto" >
       <div>
-        <label id="title">Nombre de la actividad</label>
-        <input name="title" id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        <label id="title" className="col-6">Nombre de la actividad</label>
+        <input className="col-6" name="title" id="title" type="text" value={title}
+          onChange={(e) => setTitle(e.target.value)}/>  
       </div>
       <div>
-        <label id="fecha">Fecha</label>
-        <input name="fecha" id="fecha" type="date" value={start} 
+        <label id="fecha" className="col-6">Fecha</label>
+        <input className="col-6" name="fecha" id="fecha" type="date" value={start}
           onChange={(e) => setStart(e.target.value)}/>
       </div>
       <div>
-        <label id="fecha">Hora Inicio</label>
-        <input name="tiempo" id="tiempo" type="time" value={time} 
+        <label id="fecha" className="col-6">Hora Inicio</label>
+        <input className="col-6" name="tiempo" id="tiempo" type="time" value={time}
           onChange={(e) => setTime(e.target.value)}/>
       </div>
       <div>
-        <label id="fecha">Hora Final</label>
-        <input name="time" id="time" type="time" value={time2} 
+        <label id="fecha" className="col-6">Hora Final</label>
+        <input className="col-6" name="tiempo2" id="tiempo2" type="time" value={time2||time}
           onChange={(e) => setTime2(e.target.value)}/>
       </div>
-      <button onClick={() => Test()}>
-          Iniciar Sesion
+      <button className="btn btn-info btn-block my-4" onClick={() => Test()}>
+          Agendar Cita
       </button>
-      {/*</form>*/}
+      <button className="btn btn-info btn-block my-4" onClick={() => Delete()}>
+          Borrar Cita
+      </button>
     </div>
   );
 };
