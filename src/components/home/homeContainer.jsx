@@ -25,7 +25,7 @@ const Home = () => {
   };
 
   const openSearchPatient = () => {
-    homeBoardDispatch({ type: 'SET_STATE', payload: 'searchPatient' });
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'modal' });
   };
 
   const openCalendar = () => {
@@ -34,10 +34,6 @@ const Home = () => {
 
   const openPosenet = () => {
     homeBoardDispatch({ type: 'SET_STATE', payload: 'posenet' });
-  };
-
-  const openPatientManagement = () => {
-    homeBoardDispatch({ type: 'SET_STATE', payload: 'modal' });
   };
 
   return (
@@ -61,9 +57,6 @@ const Home = () => {
           </button>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openSearchPatient()}>
             Gestionar Paciente
-          </button>
-          <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPatientManagement()}>
-            Gestionar Citas
           </button>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => logOutFetch()}>
             Cerrar Sesion
