@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import Pages from './router/pages';
 import history from '../history';
 import UserProvider from '../store/userProvider';
+import FormProvider from '../store/formProvider';
 import CalendarProvider from '../store/calendarProvider';
 import HomeBoardProvider from '../store/homeBoardProvider';
 import SearchProvider from '../store/searchProvider';
@@ -14,18 +15,20 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <HomeBoardProvider>
-      <CalendarProvider>
-        <SearchProvider>
-          <UserProvider>
-            <Router history={history}>
-              <Route component={Pages} />
-            </Router>
-            <ToastContainer />
-          </UserProvider>
-        </SearchProvider>
-      </CalendarProvider>
-    </HomeBoardProvider>
+    <FormProvider>
+      <HomeBoardProvider>
+        <CalendarProvider>
+          <SearchProvider>
+            <UserProvider>
+              <Router history={history}>
+                <Route component={Pages} />
+              </Router>
+              <ToastContainer />
+            </UserProvider>
+          </SearchProvider>
+        </CalendarProvider>
+      </HomeBoardProvider>
+    </FormProvider>
   );
 };
 
