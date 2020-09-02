@@ -51,12 +51,6 @@ const Avatar = () => {
             </button>
           </div>
         )}
-
-      {imgSrc && (
-        <img
-          src={console.log(imgSrc)}
-        />
-      )}
       <button
         title={hover}
         className="button-photo button-avatar"

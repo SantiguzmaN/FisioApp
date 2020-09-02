@@ -3,8 +3,6 @@ import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
 import BigCalendar from '../calendar/calendar';
 import { useHomeBoardDispatch } from '../../store/homeBoardProvider';
-
-
 import HomeBoard from '../homeBoard/homeBoard';
 import '../../styles/home.css';
 
