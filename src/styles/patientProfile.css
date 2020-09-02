@@ -3,12 +3,26 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: ridge;
   border-radius: 100%;
   background-color: rgb(55, 188, 206);
-  margin: 20px auto auto;
+  margin:auto auto auto auto;
   width: 180px;
   height: 180px;
+  box-shadow: 0 0 20px rgb(4, 236, 109);
+  line-height: 180px;
+  text-align: inherit;
+}
+
+.appoitmen-camara {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  margin: 20px auto auto;
+  width: 900px;
+  height: 450px;
+  border:  rgb(55, 188, 206) 8px groove;
 }
 
 .patient-Info-Container {
@@ -54,7 +68,4 @@
   height: auto;
 }
 
-.text {
-  background: #fff;
-  height: 103vh;
-}
+

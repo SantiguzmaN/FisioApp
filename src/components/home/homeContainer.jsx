@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { logOut } from '../../actions/loginActions';
 import { useUserState } from '../../store/userProvider';
-import  BigCalendar   from '../calendar/calendar';
-import  Form   from '../calendar/Form';
-//import PatientProfile from '../patientProfile/patientProfile';
+import BigCalendar from '../calendar/calendar';
 import { useHomeBoardDispatch } from '../../store/homeBoardProvider';
 
 
@@ -35,6 +33,9 @@ const Home = () => {
   const openPosenet = () => {
     homeBoardDispatch({ type: 'SET_STATE', payload: 'posenet' });
   };
+  const openAppoitment = () => {
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'appoitment' });
+  };
 
   return (
     <div className="wrapper app">
@@ -47,7 +48,7 @@ const Home = () => {
             alt="FISIOAPP"
           />
           <div className="border w-100">
-            <BigCalendar/>
+            <BigCalendar />
           </div>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => openPosenet()} >
             Ir al Posenet
@@ -60,6 +61,9 @@ const Home = () => {
           </button>
           <button type="button" className="btn btn-info btn-block my-4" onClick={() => logOutFetch()}>
             Cerrar Sesion
+          </button>
+          <button type="button" className="btn btn-info btn-block my-4" onClick={() => openAppoitment()}>
+            Citas
           </button>
         </div>
         <div className="col-9 childenConteiner">

@@ -5,6 +5,7 @@ import '../../styles/patientProfile.css';
 import { useEffect } from 'react';
 
 const Avatar = () => {
+  const noPhoto = 'Aún sin foto';
   const [photo, setPhoto] = useState('');
   const { user } = useSearchState();
   const webcamRef = useRef(null);
@@ -30,7 +31,7 @@ const Avatar = () => {
   return (
     <div>
       {show ? (
-        <img className="w-100 h-100 avatar" src={photo}></img>
+        <img className="avatar" src={photo} alt={noPhoto}></img>
       ) : (
           <div>
             <Webcam
@@ -50,6 +51,12 @@ const Avatar = () => {
             </button>
           </div>
         )}
+
+      {imgSrc && (
+        <img
+          src={console.log(imgSrc)}
+        />
+      )}
       <button
         title={hover}
         className="button-photo button-avatar"
@@ -62,11 +69,6 @@ const Avatar = () => {
       >
         Ɵ
       </button>
-      {imgSrc && (
-        <img
-          src={console.log(imgSrc)}
-        />
-      )}
     </div>
   );
 };
