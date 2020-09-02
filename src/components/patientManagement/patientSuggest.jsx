@@ -33,7 +33,10 @@ const PatientSuggest = (user) => {
   };
 
   const openAppointmentManagement = () => {
-    homeBoardDispatch({ type: 'SET_STATE', payload: 'AppointmentManagement' });
+    getPatient(userCc).then((data) => {
+      searchDispatch({ type: 'SET_USER', payload: data });
+      homeBoardDispatch({ type: 'SET_STATE', payload: 'AppointmentManagement' });
+    });
   };
 
 

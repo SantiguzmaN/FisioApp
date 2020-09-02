@@ -1,19 +1,32 @@
 import React, { useState } from 'react';
 import { useCalendarDispatch } from '../../store/calendarProvider';
+import { useFormState } from '../../store/formProvider';
+import { useSearchState } from '../../store/searchProvider';
+import { useEffect } from 'react';
 
 const Form = () => {
+  const { ac } = useFormState();
   const calendarDispatch = useCalendarDispatch();
+  const { user } = useSearchState();
+  const [realName, setRealName] = useState('');
+  const [cedula, setCedula] = useState('');
+  useEffect(() => {
+    if (user){
+      setRealName(user.name);
+      setCedula(user.cc);
+    }
+  }, [user]);
   const [title, setTitle] = useState('');
-  // cc y name tiene que ser cambiado por los datos del paciente.
-  const cc = '103204';
-  const name = 'pepe';
+  const cc = cedula;
+  const name = realName;
   const [start, setStart] = useState('');
   const [time, setTime] = useState('');
   const [time2, setTime2] = useState('');
   
+
   const Test = (e) => {
     const myEvents= {
-      title: (title+', '+name),
+      title: (title+' , '+name),
       cc: cc,
       start: new Date(start+' '+time),
       end: new Date(start+' '+time2)
@@ -25,9 +38,16 @@ const Form = () => {
     setTime2('');
   };
 
+  useEffect(()=>{
+    if(ac !== undefined){
+      const titleCom = ac.title.split(' ');
+      setTitle(titleCom[0]);
+    }
+  });
+
   const Delete = (e) =>{
     const myEvents= {
-      title: (title+', '+name),
+      title: (title+' , '+name),
       cc: cc,
       start: new Date(start+' '+time),
       end: new Date(start+' '+time2)
@@ -38,7 +58,7 @@ const Form = () => {
 
   const Update = (e) =>{
     const myEvents= {
-      title: (title+', '+name),
+      title: (title+' , '+name),
       cc: cc,
       start: new Date(start+' '+time),
       end: new Date(start+' '+time2)

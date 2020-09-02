@@ -10,10 +10,12 @@ export const calendarReducer = (state, action) => {
   
   case 'DELETE_APPOINTMENT':
     const borrar = state.cita.map(element => {
+      console.log(element.title);
+      console.log(action.payload.title);  
       if(element.title !== action.payload.title){
         return element;
       }
-    } );
+    });
     
     return {
       ...state,
