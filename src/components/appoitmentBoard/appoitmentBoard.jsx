@@ -8,6 +8,20 @@ import '../../styles/patientProfile.css';
 
 const AppoitmentBoard = () => {
     const [optioncamera, setOptionCamera] = useState('zero');
+    const valoresFomulario = [];
+    const obtainKeysAndValues = () => {
+        const valoresFormulario = [];
+        const clasesFormulario = ['gradoDolor', 'estimuloElectricidad', 'DensidadTejido', 'estimuloCalor', 'Movilidad',
+            'Inflamación', 'Funcionalidad', 'tonoMuscular', 'Elasticidad', 'sensibilidad'];
+        clasesFormulario.forEach(element => {
+            var dato = document.getElementsByClassName(element);
+            var value = [];
+            for (var x = 0; x < dato.length; x++) {
+                value.push({ 'id': dato[x].parentElement.innerText, 'res': dato[x].checked });
+            }
+            valoresFomulario.push({ 'key': element, 'value': value });
+        });
+    }
     return (
         <div className="principal-container global">
             <div>
@@ -18,40 +32,40 @@ const AppoitmentBoard = () => {
                 <div className="row">
                     <div className="col-3">
                         grado de dolor
-                </div>
+                    </div>
                     <div className="col-3">
                         <label className="col-2">
                             1
-                   <input type="checkbox" name="bajo" />
+                   <input type="checkbox" className="gradoDolor" name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             5
-                   <input type="checkbox" name="medio" />
+                   <input type="checkbox" className="gradoDolor" name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             10
-                   <input type="checkbox" name="alto" />
+                   <input type="checkbox" className="gradoDolor" name="check" />
                         </label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-3">
                         estimulo electricidad
-                </div>
+                    </div>
                     <div className="col-3">
                         <label className="col-2">
                             si
-                   <input type="checkbox" name="electricidadSi" />
+                   <input type="checkbox" className="estimuloElectricidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             no
-                   <input type="checkbox" name="electricidadNo" />
+                   <input type="checkbox" className="estimuloElectricidad" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -62,13 +76,13 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             aumento
-                   <input type="checkbox" name="aumento" />
+                   <input type="checkbox" className="DensidadTejido" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             disminuye
-                   <input type="checkbox" name="disminucion" />
+                   <input type="checkbox" className="DensidadTejido" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -79,13 +93,13 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             si
-                   <input type="checkbox" name="calorsi" />
+                   <input type="checkbox" className="estimuloCalor" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             no
-                   <input type="checkbox" name="calorNo" />
+                   <input type="checkbox" className="estimuloCalor" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -96,19 +110,19 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             10
-                   <input type="checkbox" name="mov10" />
+                   <input type="checkbox" className="Movilidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             50
-                   <input type="checkbox" name="mov50" />
+                   <input type="checkbox" className="Movilidad" Name="check" />
                         </label >
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             100
-                   <input type="checkbox" name="mov100" />
+                   <input type="checkbox" className="Movilidad" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -119,19 +133,19 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             10
-                   <input type="checkbox" name="inf10" />
+                   <input type="checkbox" className="Inflamación" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             50
-                   <input type="checkbox" name="inf50" />
+                   <input type="checkbox" className="Inflamación" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             100
-                   <input type="checkbox" name="inf100" />
+                   <input type="checkbox" className="Inflamación" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -142,19 +156,19 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             alta
-                   <input type="checkbox" name="funAlta" />
+                   <input type="checkbox" className="Funcionalidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             media
-                   <input type="checkbox" name="funMadia" />
+                   <input type="checkbox" className="Funcionalidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             baja
-                   <input type="checkbox" name="funBaja" />
+                   <input type="checkbox" className="Funcionalidad" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -165,19 +179,19 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             alta
-                   <input type="checkbox" name="tmAto" />
+                   <input type="checkbox" className="tonoMuscular" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             media
-                   <input type="checkbox" name="tmMadia" />
+                   <input type="checkbox" className="tonoMuscular" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             normal
-                       <input type="checkbox" name="tmNormal" />
+                       <input type="checkbox" className="tonoMuscular" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -188,19 +202,19 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             baja
-                   <input type="checkbox" name="eBaja" />
+                   <input type="checkbox" className="Elasticidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             muy baja
-                   <input type="checkbox" name="eMuyBaja" />
+                   <input type="checkbox" className="Elasticidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             normal
-                   <input type="checkbox" name="eNormal" />
+                   <input type="checkbox" className="Elasticidad" Name="check" />
                         </label>
                     </div>
                 </div>
@@ -211,19 +225,19 @@ const AppoitmentBoard = () => {
                     <div className="col-3">
                         <label className="col-2">
                             baja
-                   <input type="checkbox" name="sBaja" />
+                   <input type="checkbox" className="sensibilidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             alta
-                   <input type="checkbox" name="sAlta" />
+                   <input type="checkbox" className="sensibilidad" Name="check" />
                         </label>
                     </div>
                     <div className="col-3">
                         <label className="col-2">
                             normal
-                   <input type="checkbox" name="sNormal" />
+                   <input type="checkbox" className="sensibilidad" Name="check" />
                         </label>
                     </div>
                 </div>
