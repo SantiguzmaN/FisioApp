@@ -8,9 +8,8 @@ import '../../styles/patientProfile.css';
 
 const AppoitmentBoard = () => {
     const [optioncamera, setOptionCamera] = useState('zero');
-    const valoresFomulario = [];
-    const obtainKeysAndValues = () => {
-        const valoresFormulario = [];
+    const getKeysAndValues = () => {
+        var formValues = [];
         const clasesFormulario = ['gradoDolor', 'estimuloElectricidad', 'DensidadTejido', 'estimuloCalor', 'Movilidad',
             'Inflamación', 'Funcionalidad', 'tonoMuscular', 'Elasticidad', 'sensibilidad'];
         clasesFormulario.forEach(element => {
@@ -19,7 +18,7 @@ const AppoitmentBoard = () => {
             for (var x = 0; x < dato.length; x++) {
                 value.push({ 'id': dato[x].parentElement.innerText, 'res': dato[x].checked });
             }
-            valoresFomulario.push({ 'key': element, 'value': value });
+            formValues.push({ 'key': element, 'value': value });
         });
     }
     return (
@@ -268,7 +267,7 @@ const AppoitmentBoard = () => {
                     modo Mobilenet
                 </button>
             </div>
-            <button className="btn btn-info btn-block my-1" type="submit" data-testid="submit">
+            <button className="btn btn-info btn-block my-1" type="submit" data-testid="submit" >
                 Archivar
             </button>
         </div>
