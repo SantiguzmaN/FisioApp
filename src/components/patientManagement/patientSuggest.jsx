@@ -14,7 +14,6 @@ const PatientSuggest = (user) => {
   const userDispatch = useUserDispatch();
 
   const openEditPatient = () => {
-    console.log('front', userCc);
     getPatient(userCc).then((data) => {
       if (data === false) {
         toast.warn('Problemas de conexion, intentelo de nuevo');

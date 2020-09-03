@@ -27,7 +27,6 @@ const Avatar = () => {
   };
   useEffect(() => {
     if (user) setPhoto(user.photo);
-    console.log(photo);
   }, [user]);
   return (
     <div>

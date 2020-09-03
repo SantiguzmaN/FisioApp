@@ -59,7 +59,6 @@ export const getAllPatient = () => {
       () => false
     )
     .then((data) => {
-      console.log(data);
       return data;
     });
 };
