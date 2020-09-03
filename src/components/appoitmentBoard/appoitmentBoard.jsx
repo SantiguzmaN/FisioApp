@@ -11,9 +11,9 @@ const AppoitmentBoard = () => {
   const valoresFomulario = [];
   const obtainKeysAndValues = () => {
     const valoresFormulario = [];
-    const clasesFormulario = ['gradoDolor', 'estimuloElectricidad', 'DensidadTejido', 'estimuloCalor', 'Movilidad',
+    const formClass = ['gradoDolor', 'estimuloElectricidad', 'DensidadTejido', 'estimuloCalor', 'Movilidad',
       'Inflamación', 'Funcionalidad', 'tonoMuscular', 'Elasticidad', 'sensibilidad'];
-    clasesFormulario.forEach(element => {
+    formClass.forEach(element => {
       var dato = document.getElementsByClassName(element);
       var value = [];
       for (var x = 0; x < dato.length; x++) {
