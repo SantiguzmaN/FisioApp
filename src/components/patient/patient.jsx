@@ -19,8 +19,6 @@ const Patient = () => {
   const [basePathology, setBasePathology] = useState('');
   const [companion, setCompanion] = useState('');
   const [companionMovil, setCompanionMovil] = useState('');
-  const [photo, setPhoto] = useState('');
-
   const { user } = useSearchState();
 
   useEffect(() => {
@@ -39,7 +37,6 @@ const Patient = () => {
       setBasePathology(user.basePathology);
       setCompanion(user.companion);
       setCompanionMovil(user.companionMovil);
-      setPhoto(user.photo);
     }
   }, [user]);
 
