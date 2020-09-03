@@ -10,9 +10,9 @@ const AppoitmentBoard = () => {
     const [optioncamera, setOptionCamera] = useState('zero');
     const getKeysAndValues = () => {
         var formValues = [];
-        const clasesFormulario = ['gradoDolor', 'estimuloElectricidad', 'DensidadTejido', 'estimuloCalor', 'Movilidad',
+        const formsClass = ['gradoDolor', 'estimuloElectricidad', 'DensidadTejido', 'estimuloCalor', 'Movilidad',
             'Inflamación', 'Funcionalidad', 'tonoMuscular', 'Elasticidad', 'sensibilidad'];
-        clasesFormulario.forEach(element => {
+        formsClass.forEach(element => {
             var dato = document.getElementsByClassName(element);
             var value = [];
             for (var x = 0; x < dato.length; x++) {
