@@ -1,13 +1,13 @@
 import history from '../history';
 
-export function loginFetch(user, password) {
+export function loginFetch(email, password) {
   return fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json'
     },
-    body: JSON.stringify({ user, password })
+    body: JSON.stringify({ email, password })
   })
     .then((resp) => resp.json())
     .catch(() => false)
@@ -27,12 +27,7 @@ export function signupFetch(user) {
     body: JSON.stringify({ ...user })
   })
     .then((resp) => resp.json())
-    .catch(
-      () =>
-        // ToDo... Cuando el backend este listo, esta respuesta se retornara en la linea 18.
-        ({ status: true })
-      // return false;
-    )
+    .catch(() => false)
     .then((data) => data);
 }
 

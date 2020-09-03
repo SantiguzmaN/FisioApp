@@ -25,21 +25,20 @@ const PatientManagement = () => {
     getAllPatient().then((data) => {
       if (data === false) {
         toast.warn('Problemas de conexion, intentelo nuevamente');
-      } else if (!data[0]) {
+      } else if (!data.users[0]) {
         toast.error(
-          'El usuario y la contraseña no coinciden. Verifique e intentelo nuevamente'
+          'error al actualizar la lista de usuarios. Intentelo nuevamente'
         );
-      } else if (data[0]) {
-        toast.success('Usuarios Actualizados');
-        setAllUsers(data);
+      } else if (data.users[0]) {
+        setAllUsers(data.users);
       }
     });
-  });
+  }, []);
 
   const openEditPatient = () => {
     homeBoardDispatch({ type: 'SET_STATE', payload: 'editPatient' });
-    userDispatch({ type: 'USER_TO_EDIT', payload: null })
-  }
+    userDispatch({ type: 'USER_TO_EDIT', payload: null });
+  };
 
   return (
     <div className="appoitment-modal">

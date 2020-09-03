@@ -16,32 +16,32 @@ const HomeBoard = () => {
   useEffect(() => {
     if (toOpen) {
       switch (toOpen) {
-        case 'notFound':
-          toggleComponet(<h1>EL PACIENTE NO EXISTE</h1>);
-          break;
-        case 'patientProfile':
-          toggleComponet(<PatientProfile />);
-          break;
-        case 'calendar':
-          toggleComponet(<Calendar />);
-          break;
-        case 'posenet':
-          toggleComponet(<PoseNet />);
-          break;
-        case 'modal':
-          toggleComponet(<PatientManagement />);
-          break;
-        case 'editPatient':
-          toggleComponet(<EditPatient />);
-          break;
-        case 'AppointmentManagement':
-          toggleComponet(<Form />);
-          break;
-        case 'appoitment':
-          toggleComponet(<AppoitmentBoard />);
-          break;
-        default:
-          toggleComponet(<h1>ESTE TABLERO CAMBIA SEGUN LA SELECCION DEL BOTON</h1>);
+      case 'notFound':
+        toggleComponet(<h1>EL PACIENTE NO EXISTE</h1>);
+        break;
+      case 'patientProfile':
+        toggleComponet(<PatientProfile />);
+        break;
+      case 'calendar':
+        toggleComponet(<Calendar />);
+        break;
+      case 'posenet':
+        toggleComponet(<PoseNet />);
+        break;
+      case 'modal':
+        toggleComponet(<PatientManagement />);
+        break;
+      case 'editPatient':
+        toggleComponet(<EditPatient />);
+        break;
+      case 'AppointmentManagement':
+        toggleComponet(<Form />);
+        break;
+      case 'appoitment':
+        toggleComponet(<AppoitmentBoard />);
+        break;
+      default:
+        toggleComponet(<h1>ESTE TABLERO CAMBIA SEGUN LA SELECCION DEL BOTON</h1>);
       }
     }
   }, [toOpen]);

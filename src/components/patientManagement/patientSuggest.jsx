@@ -7,13 +7,14 @@ import { toast } from 'react-toastify';
 import { useUserDispatch } from '../../store/userProvider';
 
 const PatientSuggest = (user) => {
-  const [userName, setUserName] = useState(user.user.nombre);
+  const [userName, setUserName] = useState(user.user.name);
   const homeBoardDispatch = useHomeBoardDispatch();
-  const [userCc, setUserCc] = useState(user.cc);
+  const [userCc, setUserCc] = useState(user.user.cc);
   const searchDispatch = useSearchDispatch();
   const userDispatch = useUserDispatch();
 
   const openEditPatient = () => {
+    console.log('front', userCc);
     getPatient(userCc).then((data) => {
       if (data === false) {
         toast.warn('Problemas de conexion, intentelo de nuevo');
@@ -23,7 +24,7 @@ const PatientSuggest = (user) => {
         );
       } else if (data && data.status === true) {
         homeBoardDispatch({ type: 'SET_STATE', payload: 'editPatient' });
-        userDispatch({ type: 'USER_TO_EDIT', payload: data })
+        userDispatch({ type: 'USER_TO_EDIT', payload: data.user });
       }
     });
   };
@@ -37,7 +38,7 @@ const PatientSuggest = (user) => {
           'El usuario no existe. Verifique e intentelo de nuevo'
         );
       } else if (data && data.status === true) {
-        searchDispatch({ type: 'SET_USER', payload: data });
+        searchDispatch({ type: 'SET_USER', payload: data.user });
         homeBoardDispatch({ type: 'SET_STATE', payload: 'patientProfile' });
       }
     });

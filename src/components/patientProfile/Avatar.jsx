@@ -9,7 +9,7 @@ const Avatar = () => {
   const [photo, setPhoto] = useState('');
   const { user } = useSearchState();
   const webcamRef = useRef(null);
-  const [hover, sethover] = useState("Abre la camara");
+  const [hover, sethover] = useState('Abre la camara');
   const [imgSrc, setImgSrc] = useState(null);
   const [show, setShow] = useState(true);
   const [text, setText] = useState(false);
@@ -18,7 +18,7 @@ const Avatar = () => {
       const imageSrc = webcamRef.current.getScreenshot();
       setImgSrc(imageSrc);
     }
-  }, [webcamRef, setImgSrc]);
+  }, [show]);
   const change = (e) => {
     text
       ? (e.target.style.background = 'grey')
@@ -26,37 +26,38 @@ const Avatar = () => {
     setText(!text);
   };
   useEffect(() => {
-    if (user) setPhoto(user.photo)
+    if (user) setPhoto(user.photo);
+    console.log(photo);
   }, [user]);
   return (
     <div>
       {show ? (
         <img className="avatar" src={photo} alt={noPhoto}></img>
       ) : (
-          <div>
-            <Webcam
-              className="avatar"
-              audio={false}
-              screenshotFormat="image/jpeg"
-              ref={webcamRef}
-            />
-            <button
-              title="Toma una foto"
-              className="button-photo button-avatar"
-              onClick={capture}
-              onMouseEnter={change}
-              onMouseOut={change}
-            >
+        <div>
+          <Webcam
+            className="avatar"
+            audio={false}
+            screenshotFormat="image/jpeg"
+            ref={webcamRef}
+          />
+          <button
+            title="Toma una foto"
+            className="button-photo button-avatar"
+            onClick={capture}
+            onMouseEnter={change}
+            onMouseOut={change}
+          >
               take
-            </button>
-          </div>
-        )}
+          </button>
+        </div>
+      )}
       <button
         title={hover}
         className="button-photo button-avatar"
         onClick={() => {
           setShow(!show);
-          sethover("Cierra la camara");
+          sethover('Cierra la camara');
         }}
         onMouseEnter={change}
         onMouseOut={change}

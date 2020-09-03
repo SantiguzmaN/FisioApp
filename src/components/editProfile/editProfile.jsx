@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useUserState } from '../../store/userProvider';
+import { updatePatient } from '../../actions/patientActions';
+import { useHomeBoardDispatch } from '../../store/homeBoardProvider';
+
 import '../../styles/forms.css';
 
 const EditPatient = () => {
+  const homeBoardDispatch = useHomeBoardDispatch();
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [sex, setSex] = useState('');
@@ -18,6 +22,7 @@ const EditPatient = () => {
   const [basePathology, setBasePathology] = useState('');
   const [companion, setCompanion] = useState('');
   const [companionMovil, setCompanionMovil] = useState('');
+  const [userId, setUserId] = useState('');
   const [button, setButton] = useState(<React.Fragment />);
   const { userEdit } = useUserState();
 
@@ -42,20 +47,36 @@ const EditPatient = () => {
       setBasePathology(userEdit.basePathology);
       setCompanion(userEdit.companion);
       setCompanionMovil(userEdit.companionMovil);
+      setUserId(userEdit._id);
     } else {
       setButton(
         <button className="btn btn-info btn-block my-4" type="submit" data-testid="submit">
           Crear Paciente
         </button>
-      )
+      );
     }
   }, [userEdit]);
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-
     const data = { name, lastName, sex, age, cc, email, rh, eps, movil, phone, allergies, basePathology, companion, companionMovil };
-  }
+    updatePatient(data, userId).then((data) => {
+      if (data === false) {
+        toast.warn('Problemas de conexion, intentelo nuevamente');
+      } else if (data.status === false) {
+        toast.error(
+          'Problemas al Actualizar el Paciente. Intentelo nuevamente'
+        );
+      } else if (data && data.status === true) {
+        toast.success('Paciente Actualizado');
+        homeBoardDispatch({ type: 'SET_STATE', payload: 'modal' });
+      }
+    });
+  };
+
+  const cancelButton = () => {
+    homeBoardDispatch({ type: 'SET_STATE', payload: 'modal' });
+  };
 
   return (
     <div className="global h-100">
@@ -66,7 +87,7 @@ const EditPatient = () => {
       >
         <h1>
           Editar Información del paciente
-          </h1>
+        </h1>
         <input
           type="name"
           className="form-control mb-4"
@@ -94,7 +115,7 @@ const EditPatient = () => {
           name="sex"
           placeholder="Sexo"
           value={sex}
-          onChange={e => setAge(e.target.value)}
+          onChange={e => setSex(e.target.value)}
           required
         />
         <input
@@ -153,7 +174,7 @@ const EditPatient = () => {
           data-testid="movil"
           name="movil"
           placeholder="Celular"
-          value="movil"
+          value={movil}
           onChange={e => setMovil(e.target.value)}
           required
         />
@@ -208,9 +229,12 @@ const EditPatient = () => {
           required
         />
         {button}
+        <button className="btn btn-info btn-block my-4" data-testid="submit" onClick={cancelButton}>
+          Cancelar
+        </button>
       </form>
     </div>
   );
-}
+};
 
 export default EditPatient;
