@@ -10,9 +10,11 @@ import { useState } from 'react';
 const PatientProfile = () => {
   const [name, setName] = useState('');
   const { user } = useSearchState();
+
   useEffect(() => {
     if (user) setName(user.name);
   }, [user]);
+
   return (
     <div className="w-100">
       <div className="row">
